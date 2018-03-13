@@ -1,0 +1,162 @@
+
+{% load static %}
+ <nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top ">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <span class="icon-logo"></span>
+        </a>
+        <a class="navbar-toggler hidden-md-up pull-xs-right" data-toggle="collapse" href="#collapsingNavbar" aria-expanded="false" aria-controls="collapsingNavbar">
+        &#9776;
+        </a>
+        <a class="navbar-toggler navbar-toggler-custom hidden-md-up pull-xs-right" data-toggle="collapse" href="#collapsingMobileUser" aria-expanded="false" aria-controls="collapsingMobileUser">
+          <span class="icon-user"></span>
+        </a>
+        <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel" aria-labelledby="collapsingNavbar">
+          <ul class="nav navbar-nav pull-xs-right">
+            <li class="nav-item nav-item-toggable active">
+              <a class="nav-link" href="{% url 'home' %}">AnaSayfa</a>
+            </li>
+
+
+
+            <li class="navbar-divider hidden-sm-down"></li>
+            <li class="nav-item dropdown nav-dropdown-search hidden-sm-down">
+              <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="icon-search"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-menu-search" aria-labelledby="dropdownMenu1">
+                <form class="navbar-form">
+                  <input class="form-control navbar-search-input" type="text" placeholder="Arama Yap">
+                </form>
+              </div>
+            </li>
+            <li class="nav-item dropdown hidden-sm-down textselect-off">
+              <a class="nav-link dropdown-toggle nav-dropdown-user" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 {% if request.user.is_authenticated %}
+                     <img src="{% static 'img/face5.jpg' %}" height="40" width="40" alt="Avatar" class="img-circle"> <span class="icon-caret-down"></span>
+                 {% else %}
+                     <img src="{% static 'img/user.png' %}" height="40" width="40" alt="Avatar" class="img-circle"> <span class="icon-caret-down"></span>
+                 {% endif %}
+              </a>
+              <div class="menu-hover dropdown-menu dropdown-menu-right dropdown-menu-user dropdown-menu-animated" aria-labelledby="dropdownMenu2">
+
+                  {% if request.user.is_authenticated %}
+                      {#  OTURUM AÇIK #}
+                          <div class="media">
+                              <div class="media-left">
+                                <img src="{% static 'img/face5.jpg' %}" height="60" width="60" alt="Avatar" class="img-circle">
+                              </div>
+                              <div class="media-body media-middle">
+                                <h5 class="media-heading">{{ request.user.get_full_name }}</h5>
+                                <h6>{{ request.user.email }}</h6>
+                              </div>
+                            </div>
+                            <a href="#" class="dropdown-item text-uppercase">Menu1</a>
+
+                            <a href="#" class="dropdown-item text-uppercase text-muted">Log out</a>
+                            <a href="#" class="btn-circle has-gradient pull-xs-right">
+                              <span class="sr-only">Edit</span>
+                              <span class="icon-edit"></span>
+                            </a>
+                        {#  OTURUM AÇIK #}
+                  {% else %}
+
+                                <div class="text-center"><h3><b>Oturum Aç</b></h3></div>
+                                <form id="oturum_ac_formu" method="post" onsubmit="login('tablet+');return false;">
+                                {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="username">Kullanıcı Adı</label>
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Kullanıcı Adı" value="" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Şifre</label>
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Şifre" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" id="giris_buton1" class="buton btn btn-success btn-block" value="Giriş Yap">
+                                       <button type="button" class="buton btn btn-primary btn-block" data-toggle="modal" data-target="#kayit_modal">Kayıt Ol</button>
+                                    </div>
+
+                                </form>
+
+
+
+
+
+                  {% endif %}
+
+
+
+
+
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div id="collapsingMobileUser" class="collapse navbar-toggleable-custom dropdown-menu-custom p-x-1 hidden-md-up" role="tabpanel" aria-labelledby="collapsingMobileUser">
+        <!--<div class="media m-t-1">
+            <div class="media-left">
+              <img src="img/face5.jpg" height="60" width="60" alt="Avatar" class="img-circle">
+            </div>
+            <div class="media-body media-middle">
+              <h5 class="media-heading">Joel Fisher</h5>
+              <h6>hey@joelfisher.com</h6>
+            </div>
+          </div>
+          <a href="#" class="dropdown-item text-uppercase">View posts</a>
+          <a href="#" class="dropdown-item text-uppercase">Manage groups</a>
+          <a href="#" class="dropdown-item text-uppercase">Subscription &amp; billing</a>
+          <a href="#" class="dropdown-item text-uppercase text-muted">Log out</a>
+          <a href="#" class="btn-circle has-gradient pull-xs-right m-b-1">
+            <span class="sr-only">Edit</span>
+            <span class="icon-edit"></span>
+          </a> -->
+         <form id="oturum_ac_formu2" method="post" onsubmit="login('mobil');return false;">
+
+                  <div class="text-center"><h3 class="mobil-login-title"><b>Oturum Aç</b></h3></div>
+
+                                {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="username">Kullanıcı Adı</label>
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Kullanıcı Adı" value="" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Şifre</label>
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Şifre" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" id="giris_buton2" class="buton btn btn-success btn-block" value="Giriş Yap">
+                                       <button type="button" class="buton btn btn-primary btn-block" data-toggle="modal" data-target="#kayit_modal">Kayıt Ol</button>
+                                    </div>
+
+                                </form>
+
+
+        </div>
+      </div>
+    </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="kayit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Kayıt Ol</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="buton btn-block btn btn-primary">Kayıt Ol</button>
+      </div>
+    </div>
+  </div>
+</div>

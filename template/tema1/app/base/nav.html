@@ -1,0 +1,17 @@
+<nav class="side-navbar">{% load static %}
+          <div class="sidebar-header d-flex align-items-center">
+            <div class="avatar"><img src="{% static 'img/face5.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="title">
+              <h1 class="h4">{{ request.user.get_full_name }}</h1>
+              <p>{{ request.user.email }}</p>
+            </div>
+          </div>
+        <span class="heading">Genel</span>
+          <ul class="list-unstyled">
+            <li class="{% ifequal link 'index' %} active {% endifequal %}"><a href="{% url 'app:index' %}"> <i class="icon-home"></i>AnaSayfa </a></li>
+          </ul>
+        <span class="heading">Ayarlar</span>
+          <ul class="list-unstyled">
+            <li class="{% ifequal link 'user' %} active {% endifequal %}"><a href="{% url 'app:user' %}"> <i class="fa fa-id-card"></i>Profil Ayarları</a></li>
+          </ul>
+        </nav>

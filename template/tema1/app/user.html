@@ -1,0 +1,65 @@
+{% extends 'app/base/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body %}
+<div class="col-xl-12">
+<div class="container">
+                  <div class="client card">
+                    <div class="card-close">
+
+                    </div>
+                    <div class="card-body text-center">
+                      <div class="client-avatar"><img src="{% static 'img/face5.jpg' %}" alt="{{ request.user.get_full_name }}" class="img-fluid rounded-circle">
+                        <div class="status bg-green"></div>
+                      </div>
+                      <div class="client-title">
+                        <h3>{{ request.user.get_full_name }}</h3><span>{{ request.user.email }}</span><a href="#">Fotoğrafı Güncelle</a>
+                      </div>
+
+                      <div class="client-social d-flex justify-content-between text-left">
+                          <div class="container-fluid">
+                              <form action="#" id="update_user_form" method="POST" onsubmit="return false;">
+                                  {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Adınız</label>
+                                          <input type="text" placeholder="Adınız" class="form-control" value="{{ request.user.first_name }}">
+                                        </div>
+                                    </div>
+                                   <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Soyadınız</label>
+                                      <input type="text" placeholder="Soyadınız" class="form-control" value="{{ request.user.last_name }}">
+                                    </div>
+                                   </div>
+                                </div>
+                              <div class="row">
+                                 <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label">T.C Kimlik Numarası</label>
+                                      <input type="text" placeholder="T.C Kimlik Numarası" class="form-control" value="{{ request.user.tc_no }}">
+                                    </div>
+                                   </div>
+                                  <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Email</label>
+                                      <input type="email" placeholder="E-Mail" class="form-control" value="{{ request.user.email }}">
+                                    </div>
+                                   </div>
+                                  <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Cep Telefonu</label>
+                                      <input type="text" placeholder="(000) 000 00 00" class="form-control cep_tel" value="{{ request.user.tel }}">
+                                    </div>
+                                   </div>
+                              </div>
+
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+</div>
+</div>
+{% endblock %}
