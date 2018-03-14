@@ -1,6 +1,6 @@
 <nav class="side-navbar">{% load static %}
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="{% static 'img/face5.jpg' %}" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="{{ request.user.avatar.url }}" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4">{{ request.user.get_full_name }}</h1>
               <p>{{ request.user.email }}</p>
