@@ -8,6 +8,6 @@ urlpatterns = [
     path('user',user,name='user'),
     path('market',market,name='market'),
     path('store',store,name='store'),
-    path('logout',index,name='logout'),
+    path('logout',user_logout,name='logout'),
 
 ]

@@ -27,3 +27,9 @@ class user_machine(models.Model):
     machine_dead=models.DateTimeField(verbose_name="Makine Ölüm Zamanı")
     miner_power=models.FloatField(verbose_name="Kazım Gücü")
     fiyat=models.FloatField(verbose_name="Fiyat")
+
+class news(models.Model):
+    post=models.CharField(verbose_name="Kısa Yazı",max_length=400)
+    title=models.CharField(verbose_name="Başlık",max_length=200)
+    date=models.DateTimeField(auto_now_add=True,verbose_name="Zaman")
+
