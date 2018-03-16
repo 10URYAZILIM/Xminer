@@ -47,6 +47,8 @@ $(function () {
    // BORSA BİLGİLERİNİ ÇEK
     borsa_cek();
 
+    // MARKET FİYATLARINI MASKELE
+    market_fiyatlarini_maskele();
 })
 
 // USER
@@ -115,3 +117,13 @@ function borsa_cek() {
 }
 
 // SON BORSA
+
+
+// MARKET
+    function market_fiyatlarini_maskele() {
+        $(".machine_fiyat").each(function () {
+            fiyat=parseFloat($(this).text());
+           $(this).text(formatMyMoney(fiyat));
+        })
+    }
+// SON MARKET

@@ -94,12 +94,51 @@
           <header class="page-header">
             <div class="container-fluid">
               <div class="no-margin-bottom">
+
+                   <div class="row">
+
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="statistic d-flex align-items-center bg-white has-shadow">
+                            <div class="icon bg-green"><i class="fa fa-money"></i></div>
+                            <div class="text"><strong>{{ request.user.hesap }} ₺</strong><br><small>Hesap ₺</small></div>
+                          </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="statistic d-flex align-items-center bg-white has-shadow">
+                            <div class="icon bg-gray"><img src="{% static 'img/icon/ETH.png' %}" width="32px" height="32px"/></div>
+                            <div class="text"><strong>400 ETH</strong><br><small>Hesap ETH</small></div>
+                          </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-3">
+                       <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                    <div class="icon bg-green"><i class="fa fa-line-chart"></i></div>
+                                    <div class="text"><strong>10000000MHZ</strong><br><small>Saatlik Kazım</small></div>
+                                  </div>
+                    </div>
+
+                       <div class="col-12 col-sm-6 col-md-3">
+                        <div class="statistic d-flex align-items-center bg-white has-shadow">
+                            <div class="icon bg-green"><i class="fa fa-tasks"></i></div>
+                            <div class="text"><strong>{{ request.user.usermachine.count }}</strong><br><small>Cihaz Sayısı</small></div>
+                          </div>
+                    </div>
+
+
+
+
+
+                </div>
+<hr color="#2f333e"/>
                   <div class="row">
                       <div class="col-6 col-sm-3"><img width="24px" height="24px" src="{% static 'img/icon/BTC.png' %}" alt="btc icon" ><b>BTC</b> : <span class="tl-mask" id="btc">Yükleniyor</span> </div>
                       <div class="col-6 col-sm-3"><img width="24px" height="24px" src="{% static 'img/icon/ETH.png' %}" alt="ETH icon" ><b>ETH</b> :<span class="tl-mask" id="eth">Yükleniyor</span> </div>
                       <div class="col-6 col-sm-3"><img width="24px" height="24px" src="{% static 'img/icon/LTC.png' %}" alt="LTC icon" ><b>LTC </b>: <span class="tl-mask" id="ltc">Yükleniyor</span></div>
                       <div class="col-6 col-sm-3"><img width="24px" height="24px" src="{% static 'img/icon/XRP.png' %}" alt="XRP icon" ><b>XRP </b>: <span class="tl-mask" id="xrp">Yükleniyor</span> </div>
                   </div>
+
+
               </div>
             </div>
           </header>
@@ -116,7 +155,7 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-6">
-                  <p></p>
+                  <p>Create By 10UR YAZILIM</p>
                 </div>
                 <div class="col-sm-6 text-right">
                   <p>&copy; 2018 Tüm Hakları Saklıdır</p>
