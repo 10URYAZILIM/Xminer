@@ -1,14 +1,8 @@
 from django.shortcuts import render,HttpResponse,redirect,render_to_response
 from .forms import UpdateUserForm
 from .models import User,machine,news,user_machine
-from django import template
 from django.contrib.auth import logout
 
-register = template.Library()
-@register.filter( takes_context=True)
-def cutt(value, arg):
-    """Removes all values of arg from the given string"""
-    return value.replace(arg, '')
 
 def home(request):
     return render(request,'index.html')
