@@ -43,7 +43,8 @@ INSTALLED_APPS = [
 
     ## 3.PART UYGULAMALAR #
     'crispy_forms',
-    'requests'
+    'requests',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
 ]
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles/')
+CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'js/jquery.min.js')

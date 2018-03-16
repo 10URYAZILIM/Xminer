@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
@@ -11,7 +12,7 @@ class User(AbstractUser):
 class machine(models.Model):
     image=models.ImageField(verbose_name="Görsel",upload_to="machine")
     model=models.CharField(verbose_name="Model",max_length=50)
-    properties=models.TextField(verbose_name="Özellikler")
+    properties=RichTextField(verbose_name="Özellikler")
     fiyat=models.FloatField(verbose_name="Fiyat")
     miner_power=models.FloatField(verbose_name="Kazım Gücü")
 
@@ -20,8 +21,8 @@ class machine(models.Model):
 
 
 class user_machine(models.Model):
-    user=models.ForeignKey(User,on_delete=False,related_name="usermachine")
-    machine=models.ForeignKey(machine,on_delete=False)
+    user=models.ForeignKey(User,on_delete=False,related_name="usermachine",verbose_name="Kullanıcı")
+    machine=models.ForeignKey(machine,on_delete=False,verbose_name="Makina Modeli")
     date=models.DateTimeField(auto_now_add=True, verbose_name="Makina Alım Zamanı")
     machine_dead=models.DateTimeField(verbose_name="Makine Ölüm Zamanı")
     miner_power=models.FloatField(verbose_name="Kazım Gücü")
