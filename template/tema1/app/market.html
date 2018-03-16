@@ -10,8 +10,12 @@
               <img class="card-img-top" src="{{ machine.image.url }}" alt="{{ machine.model }}">
               <div class="card-body">
                 <h5 class="card-title">{{ machine.model }}</h5>
+                    <hr />
                   <p class="card-text">
-                        <span><b>Fiyat : </b><span class="machine_fiyat">{{ machine.fiyat }}</span></span>
+                  <span><b>Hash Rate : </b>{{ machine.miner_power }} {{ machine.miner_power_rate }}/s</span><br/>
+                      <span><b>Garanti Süresi : </b>{{ machine.warranty }}</span><br/>
+                      <span><b>Kullanım Ömrü : </b>{{ machine.lifetime }}</span><br/>
+                  <span><b>Fiyat : </b><span class="machine_fiyat">{{ machine.fiyat }}</span></span>
                   </p>
                 <div class="row">
                 <div class="col-6">
@@ -47,14 +51,16 @@
                 </button>
               </div>
               <div class="modal-body">
-                
+
                 {{ machine.properties|linebreaks }}
                   <hr />
+                  <span><b>Hash Rate : </b>{{ machine.miner_power }} {{ machine.miner_power_rate }}/s</span><br/>
+                  <span><b>Garanti Süresi : </b>{{ machine.warranty }}</span><br/>
+                  <span><b>Kullanım Ömrü : </b>{{ machine.lifetime }}</span><br/>
                   <span><b>Fiyat : </b><span class="machine_fiyat">{{ machine.fiyat }}</span></span>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                <button type="button" class="btn btn-success">Satın Al</button>
               </div>
             </div>
           </div>

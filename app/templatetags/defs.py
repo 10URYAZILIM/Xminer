@@ -10,3 +10,7 @@ def sirarti(context):
 @register.filter(name='kalan_zaman')
 def kalan_zaman(val,val2):
     return val-val2
+
+@register.filter(name='carp')
+def carp(val,val2):
+    return val*val2

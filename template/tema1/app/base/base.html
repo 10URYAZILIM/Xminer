@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">{% load static %}
+<html lang="tr">{% load static %}{% load defs %}
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -114,7 +114,7 @@
                     <div class="col-12 col-sm-6 col-md-3">
                        <div class="statistic d-flex align-items-center bg-white has-shadow">
                                     <div class="icon bg-green"><i class="fa fa-line-chart"></i></div>
-                                    <div class="text"><strong>10000000MHZ</strong><br><small>Saatlik Kazım</small></div>
+                                    <div class="text"><strong>{{ toplam_hash.gh }}</strong><br><small>Hash Rate GH/s</small></div>
                                   </div>
                     </div>
 
