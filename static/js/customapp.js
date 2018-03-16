@@ -8,6 +8,17 @@ function loading() {
 function loading_close() {
      $(".loader").fadeOut("slow");
 }
+function formatMyMoney(price) {
+  var currency_symbol = "₺"
+
+  var formattedOutput = new Intl.NumberFormat('tr-TR', {
+      style: 'currency',
+      currency: 'TRY',
+      minimumFractionDigits: 2,
+    });
+
+  return formattedOutput.format(price).replace(currency_symbol, '')+" ₺"
+}
 function mesajlar(par) {
      var mesaj="";
        for(var i in par){
@@ -17,6 +28,7 @@ function mesajlar(par) {
         swal ("",  mesaj ,  "error" );
 }
 $(function () {
+    // AJAX AYARLARI
    $.ajaxSetup({
       type:"POST",
       dataType:"JSON",
@@ -31,6 +43,10 @@ $(function () {
             document.location.reload();
         }
     });
+
+   // BORSA BİLGİLERİNİ ÇEK
+    borsa_cek();
+
 })
 
 // USER
@@ -76,3 +92,26 @@ function change_avatar() {
 
 }
 // SON USER
+
+
+// BORSA
+// BORSA BİLGİLERİNİ ÇEK
+function borsa_cek() {
+    $.ajax({
+        url:"/ajax/borsa",
+        type:"GET",
+        beforeSend:function () {
+        },
+        complete:function () {
+
+        },success:function (cevap) {
+            document.getElementById("btc").innerHTML=formatMyMoney(cevap.btc);
+            document.getElementById("xrp").innerHTML=formatMyMoney(cevap.xrp);
+            document.getElementById("ltc").innerHTML=formatMyMoney(cevap.ltc);
+            document.getElementById("eth").innerHTML=formatMyMoney(cevap.eth);
+
+        }
+    })
+}
+
+// SON BORSA

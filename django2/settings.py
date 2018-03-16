@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     ## 3.PART UYGULAMALAR #
     'crispy_forms',
+    'requests'
 ]
 
 MIDDLEWARE = [

@@ -9,7 +9,10 @@
         <span class="heading">Genel</span>
           <ul class="list-unstyled">
             <li class="{% ifequal link 'index' %} active {% endifequal %}"><a href="{% url 'app:index' %}"> <i class="icon-home"></i>AnaSayfa </a></li>
+            <li class="{% ifequal link 'market' %} active {% endifequal %}"><a href="{% url 'app:market' %}"> <i class="icon-home"></i>Pazar </a></li>
+            <li class="{% ifequal link 'store' %} active {% endifequal %}"><a href="{% url 'app:store' %}"> <i class="icon-home"></i>Depo </a></li>
           </ul>
+
         <span class="heading">Ayarlar</span>
           <ul class="list-unstyled">
             <li class="{% ifequal link 'user' %} active {% endifequal %}"><a href="{% url 'app:user' %}"> <i class="fa fa-id-card"></i>Profil Ayarları</a></li>

@@ -93,7 +93,14 @@
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">Dashboard</h2>
+              <div class="no-margin-bottom">
+                  <div class="row">
+                      <div class="col-6 col-sm-3"><img width="24px" height="24px" src="{% static 'img/icon/BTC.png' %}" alt="btc icon" ><b>BTC</b> : <span class="tl-mask" id="btc">Yükleniyor</span> </div>
+                      <div class="col-6 col-sm-3"><img width="24px" height="24px" src="{% static 'img/icon/ETH.png' %}" alt="ETH icon" ><b>ETH</b> :<span class="tl-mask" id="eth">Yükleniyor</span> </div>
+                      <div class="col-6 col-sm-3"><img width="24px" height="24px" src="{% static 'img/icon/LTC.png' %}" alt="LTC icon" ><b>LTC </b>: <span class="tl-mask" id="ltc">Yükleniyor</span></div>
+                      <div class="col-6 col-sm-3"><img width="24px" height="24px" src="{% static 'img/icon/XRP.png' %}" alt="XRP icon" ><b>XRP </b>: <span class="tl-mask" id="xrp">Yükleniyor</span> </div>
+                  </div>
+              </div>
             </div>
           </header>
           <!-- İÇERİK -->
@@ -126,6 +133,7 @@
     <script src="{% static 'js/popper.min.js' %}"> </script>
     <script src="{% static 'js/bootstrap4.min.js' %}"></script>
     <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+    <script src="{% static 'js/jquery.turkLirasi.min.js' %}"></script>
     <script src="{% static 'js/jquery.cookie.js' %}"> </script>
     <script src="{% static 'js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'js/sweetalert2.min.js' %}"></script>
