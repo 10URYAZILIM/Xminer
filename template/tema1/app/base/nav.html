@@ -1,16 +1,20 @@
-<nav class="side-navbar">{% load static %}
+<nav class="side-navbar">{% load static %}{% load tz %}{% get_current_timezone as TIME_ZONE %}
           <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="{{ request.user.avatar.url }}" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4">{{ request.user.get_full_name }}</h1>
               <p>{{ request.user.email }}</p>
+
             </div>
+
           </div>
+        <div class="text-center"><b>------</b></div>
         <span class="heading">Genel</span>
           <ul class="list-unstyled">
             <li class="{% ifequal link 'index' %} active {% endifequal %}"><a href="{% url 'app:index' %}"> <i class="icon-home"></i>AnaSayfa </a></li>
-            <li class="{% ifequal link 'market' %} active {% endifequal %}"><a href="{% url 'app:market' %}"> <i class="icon-home"></i>Pazar </a></li>
-            <li class="{% ifequal link 'store' %} active {% endifequal %}"><a href="{% url 'app:store' %}"> <i class="icon-home"></i>Depo </a></li>
+            <li class="{% ifequal link 'market' %} active {% endifequal %}"><a href="{% url 'app:market' %}"> <i class="fa fa-shopping-cart"></i>Pazar </a></li>
+            <li class="{% ifequal link 'store' %} active {% endifequal %}"><a href="{% url 'app:store' %}"> <i class="fa fa-archive"></i>Depo </a></li>
+            <li class="{% ifequal link 'report' %} active {% endifequal %}"><a href="{% url 'app:report' %}"> <i class="fa fa-credit-card"></i>Ödeme</a></li>
           </ul>
 
         <span class="heading">Ayarlar</span>

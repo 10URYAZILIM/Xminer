@@ -8,6 +8,7 @@ urlpatterns = [
     path('user',user,name='user'),
     path('market',market,name='market'),
     path('store',store,name='store'),
+    path('report',report,name='report'),
     path('logout',user_logout,name='logout'),
 
 ]

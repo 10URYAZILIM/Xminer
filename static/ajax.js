@@ -1,3 +1,4 @@
+$('.ceptel').mask('(000) 000 0000');
 function login(device) {
     if(device=="mobil"){
         var data=$("#oturum_ac_formu2").serialize();

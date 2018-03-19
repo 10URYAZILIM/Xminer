@@ -3,7 +3,7 @@
 {% block body %}
 <div class="container">
     <div class="row">
-
+    {% csrf_token %}
         {% for machine in machines %}
             <div class=" col-12 col-md-4 col-lg-3">
             <div class="card">
@@ -22,7 +22,7 @@
                     <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#machine{{ machine.id }}">Özellikler</button>
                 </div>
                 <div class="col-6">
-                    <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#asd">Satın Al</button>
+                    <button type="button" class="btn btn-success btn-block satin_al_buton" fiyat="{{ machine.fiyat }}" name="{{ machine.model }}" onclick="satin_al(this,{{ machine.id }})">Satın Al</button>
                 </div>
                 </div>
 

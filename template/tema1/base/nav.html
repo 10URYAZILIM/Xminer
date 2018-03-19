@@ -3,7 +3,7 @@
  <nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top ">
       <div class="container">
         <a class="navbar-brand" href="#">
-            <span><img src="{% static 'img/logo.png' %}"></img></span>
+            <span><img src="{% static 'img/bitfindeks-mining.png' %}" width="250px" height="50px"></img></span>
         </a>
         <a class="navbar-toggler hidden-md-up pull-xs-right" data-toggle="collapse" href="#collapsingNavbar" aria-expanded="false" aria-controls="collapsingNavbar">
         &#9776;
@@ -16,28 +16,25 @@
             <li class="nav-item nav-item-toggable active">
               <a class="nav-link" href="{% url 'home' %}">AnaSayfa</a>
             </li>
-          <ul class="nav navbar-nav pull-xs-right">
+
             <li class="nav-item nav-item-toggable active">
-              <a class="nav-link" href="{% url 'home' %}">Hakkımızda</a>
+              <a class="nav-link" href="#about">Hakkımızda</a>
             </li>
-          <ul class="nav navbar-nav pull-xs-right">
+
             <li class="nav-item nav-item-toggable active">
-              <a class="nav-link" href="{% url 'home' %}">Bitfindeks</a>
+              <a class="nav-link" href="http:\\www.bitfindeks.com" target="_blank">Bitfindeks</a>
+            </li>
+
+            <li class="nav-item nav-item-toggable active">
+              <a class="nav-link" href="#contact">Bize Ulaşın</a>
+            </li>
+          <li class="nav-item nav-item-toggable active">
+              <a class="nav-link" href="#sell">Satın Al</a>
             </li>
 
 
 
-            <li class="navbar-divider hidden-sm-down"></li>
-            <li class="nav-item dropdown nav-dropdown-search hidden-sm-down">
-              <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="icon-search"></span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right dropdown-menu-search" aria-labelledby="dropdownMenu1">
-                <form class="navbar-form">
-                  <input class="form-control navbar-search-input" type="text" placeholder="Arama Yap">
-                </form>
-              </div>
-            </li>
+
             <li class="nav-item dropdown hidden-sm-down textselect-off">
               <a class="nav-link dropdown-toggle nav-dropdown-user" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  {% if request.user.is_authenticated %}
@@ -152,19 +149,77 @@
     </nav>
 
 <!-- Modal -->
-<div class="modal fade" id="kayit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+<div class="modal fade"  id="kayit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Kayıt Ol</h4>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
+                           <div class="col-xs-12 col-lg-6">
+                               <label for="name" class="control-label">Adınız</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="name" id="name"  placeholder="Adınızı Giriniz.">
+                                </div>
+                           </div>
+                       <div class="col-xs-12 col-lg-6">
+                           <label for="surname" class="control-label">Soyadınız</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="surname" id="surname" class="form-control" placeholder="Soyadınızı Giriniz">
+                            </div>
+                       </div>
+
+                       <div class="col-xs-12 col-lg-6">
+                           <label for="tel" class="control-label">İrtibat No(Cep)</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+                                <input type="tel" class="form-control ceptel" name="tel" id="tel" placeholder="Numaranızı Giriniz.">
+                            </div>
+                      </div>
+
+
+                       <div class="col-xs-12 col-lg-6">
+                           <label for="email" class="control-label">E-Mail</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-mail-forward fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="email" id="email" placeholder="Mail Adresinizi Giriniz.">
+                            </div>
+                        </div>
+
+
+                       <div class="col-xs-12">
+                           <label for="username" class="control-label">Kullanıcı Adı</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Kullanıcı Adınızı Giriniz.">
+                            </div>
+                       </div>
+
+
+                       <div class="col-xs-12 col-lg-6">
+                           <label for="sifre" class="control-label">Şifre</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="sifre" id="sifre" placeholder="Şifre Giriniz.">
+                            </div>
+                       </div>
+
+
+                       <div class="col-xs-12 col-lg-6">
+                            <label for="sifre" class="control-label">Şifre(Tekrar)</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="sifre" id="sifre" placeholder="Şifreyi Tekrar Giriniz.">
+                            </div>
+                       </div>
+
+          <div class="col-xs-12">&nbsp;</div>
       <div class="modal-footer">
-        <button type="button" class="buton btn-block btn btn-primary">Kayıt Ol</button>
+        <button type="button" class="buton btn-block btn btn-primary">Kayit Ol</button>
       </div>
     </div>
   </div>
 </div>
+

@@ -23,7 +23,7 @@ function mesajlar(par) {
      var mesaj="";
        for(var i in par){
             mesaj+=par[i];
-            mesaj+='<br>';
+            mesaj+='\n';
         }
         swal ("",  mesaj ,  "error" );
 }
@@ -49,6 +49,12 @@ $(function () {
 
     // MARKET FİYATLARINI MASKELE
     market_fiyatlarini_maskele();
+
+    // TL MASKELE
+    $('.tl-maskla').each(function () {
+        var para=$(this).text();
+        $(this).text(formatMyMoney(parseFloat(para)));
+    })
 })
 
 // USER
@@ -126,4 +132,64 @@ function borsa_cek() {
            $(this).text(formatMyMoney(fiyat));
         })
     }
+    function satin_al(thiss,id) {
+        var fiyat=$(thiss).attr("fiyat");
+        var model=$(thiss).attr("name");
+        var csrfmiddlewaretoken=$('input[name="csrfmiddlewaretoken"]').val();
+
+        swal({
+          title: model,
+          text: model+" Model Cihazı "+fiyat+"₺'ye Almak İstiyor musunuz ?",
+          icon: "warning",
+          buttons: ["Hayır!", "SATIN AL!"],
+        }).then((yanit) => {
+          if (yanit) {
+              $.ajax({
+                 url:"/ajax/machinebuy",
+                  data:{'csrfmiddlewaretoken':csrfmiddlewaretoken,'machineid':id},
+                  beforeSend:function () {
+                         $('.satin_al_buton').attr("disabled", true);
+                        loading();
+                  },complete:function () {
+                        loading_close();
+                        $('.satin_al_buton').attr("disabled", false);
+                    },
+                  success:function (cevap) {
+                        if(cevap.durum==1){
+                            document.location.href="/app/store";
+                        }else{
+                           mesajlar(cevap.mesaj);
+                        }
+                    }
+              });
+            }
+        });
+
+
+    }
 // SON MARKET
+
+
+// ÖDEME
+    function odeme_bildir() {
+        var data=$('#odeme_bildiri_formu').serialize();
+        $.ajax({
+            url:'/ajax/payment',
+            data:data,
+            beforeSend:function () {
+                 document.getElementById("odeme_bildiri_buton").disabled=true;
+                loading();
+            },complete:function () {
+                loading_close();
+            },success:function (cevap) {
+                if(cevap.durum==1){
+                    swal("Ödeme Bildirimi Talebiniz Gönderildi", "", "success");
+                    document.getElementById("odeme_bildiri_buton").remove();
+                }else{
+                   mesajlar(cevap.mesaj)
+                   document.getElementById("odeme_bildiri_buton").disabled=false;
+                }
+            }
+        })
+    }
+// SON ÖDEME

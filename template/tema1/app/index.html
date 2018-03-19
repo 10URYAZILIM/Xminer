@@ -7,7 +7,7 @@
 <div class="col-12 col-lg-6">
 <div class="articles card">
 <div class="card-header d-flex align-items-center">
-  <h2 class="h3">Cihazlarım </h2> <h5> &nbsp; [ Toplam <span style="color: #8b211e">{{ request.user.usermachine.count }}</span> Adet ]<h5/>
+  <h2 class="h3">Cihazlarım </h2> <h5> &nbsp; [ Toplam <span style="color: #8b211e">{{ cihaz_istatistik.makine_count }}</span> Adet ]<h5/>
 </div>
 <div class="card-body no-padding">
     {% for machine in machines %}

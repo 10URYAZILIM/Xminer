@@ -1,0 +1,69 @@
+{% extends 'app/base/base.html' %}
+{% block body %}
+<div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-7">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Ödeme Bildirimi Yap</h3>
+                    </div>
+                    <div class="card-body">
+                      <form class="form-horizontal" id="odeme_bildiri_formu" onsubmit="odeme_bildir();return false;" action="#" method="POST">
+                        {% csrf_token %}
+                          <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Ad Soyad *</label>
+                          <div class="col-sm-9">
+                            <input id="inputHorizontalSuccess" name="fullname" type="text" placeholder="Ad Soyad" class="form-control form-control-success"><small class="form-text">Yükleme Yapılan Kartın Üzerindeki İsim</small>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Banka Adı *</label>
+                          <div class="col-sm-9">
+                            <input id="inputHorizontalWarning" name="bankname" type="text" placeholder="Banka Adı" class="form-control form-control-warning"><small class="form-text"></small>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">İban No *</label>
+                          <div class="col-sm-9">
+                            <input id="inputHorizontalWarning" name="iban" type="text" placeholder="İban No" class="form-control form-control-warning"><small class="form-text"></small>
+                          </div>
+                        </div>
+
+                          <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Tutar *</label>
+                          <div class="col-sm-9">
+                            <input id="inputHorizontalWarning" name="amount" type="text" placeholder="Tutar" class="form-control form-control-warning"><small class="form-text"></small>
+                          </div>
+                        </div>
+                          <div class="form-group row">
+                          <label class="col-sm-3 form-control-label">Telefon *</label>
+                          <div class="col-sm-9">
+                            <input id="inputHorizontalWarning" name="cellphone" type="text" placeholder="Telefon" class="cep_tel form-control form-control-warning"><small class="form-text"></small>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-9 offset-sm-3">
+                              <button type="submit" id="odeme_bildiri_buton" class="btn btn-primary btn-block">Ödeme Yapıldığını Bildir</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+            <div class="col-12 col-lg-5">
+                  <div class="card">
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Hesap Numaralarımız</h3>
+                    </div>
+                    <div class="card-body">
+                      <p>----</p>
+                        ----
+                    </div>
+                  </div>
+            </div>
+        </div>
+</div>
+
+{% endblock %}

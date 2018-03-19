@@ -67,3 +67,24 @@ def update_avatar(request):
             return HttpResponse(json.dumps({'durum':0,'mesaj':form.errors}),content_type="application/json")
     else:
         return redirect('home')
+
+
+def MachineBuy(request):
+    if request.is_ajax() and request.user.is_authenticated:
+        form=MachineBuyForm(request.POST or None,user=request.user)
+        if form.is_valid():
+            return HttpResponse(json.dumps({'durum': 1}),content_type="application/json")
+        else:
+            return HttpResponse(json.dumps({'durum':0,'mesaj':form.errors}),content_type="application/json")
+    else:
+        return redirect('home')
+
+def payment(request):
+    if request.is_ajax() and request.user.is_authenticated:
+        form=PaymentForm(request.POST or None,user=request.user)
+        if form.is_valid():
+            return HttpResponse(json.dumps({'durum': 1}),content_type="application/json")
+        else:
+            return HttpResponse(json.dumps({'durum':0,'mesaj':form.errors}),content_type="application/json")
+    else:
+        return redirect('home')
